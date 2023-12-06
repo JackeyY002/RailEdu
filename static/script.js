@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const startScreen = document.getElementById('start-screen');
     const quizApp = document.getElementById('quiz-app');
 
-    // 点击开始按钮时的事件处理器
+    // Event handler for clicking the start button
     startButton.addEventListener('click', () => {
-        startScreen.style.display = 'none'; // 隐藏开始界面
-        quizApp.style.display = 'block'; // 显示测验界面
-        fetchQuizQuestions(); // 获取问题
+        startScreen.style.display = 'none'; // Hide the start screen
+        quizApp.style.display = 'block'; // Show the quiz interface
+        fetchQuizQuestions(); // Fetch questions
     });
 });
 
@@ -28,7 +28,7 @@ function fetchQuizQuestions() {
             } else {
                 questions = data;
             }
-            startQuiz(); // 开始测验
+            startQuiz(); // Start the quiz
         })
         .catch(error => {
             removeTypingAnimation();
@@ -55,7 +55,7 @@ function startQuiz(){
 function showQuestion(){
     resetState();
     let currentQuestion = questions[currentQuestionIndex];
-    
+
     let questionNo = currentQuestionIndex + 1;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
@@ -113,7 +113,7 @@ function showScore() {
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
 
-    // 创建返回主界面的按钮
+    // Create a button to return to the main menu
     const quizApp = document.getElementById('quiz-app');
     const startScreen = document.getElementById('start-screen');
     const backButton = document.createElement("button")
@@ -122,17 +122,17 @@ function showScore() {
     backButton.addEventListener("click", () => {
         questionElement.innerHTML = "Generating new quiz";
 
-        // 切换界面
+        // Switch views
         quizApp.style.display = 'none';
         startScreen.style.display = 'block';
 
-        // 重置状态
+        // Reset state
         currentQuestionIndex = 0;
         score = 0;
-        resetState(); 
+        resetState();
     });
 
-    // 将返回按钮添加到界面中
+    // Add the back button to the interface
     answerButtons.appendChild(backButton);
 
     nextButton.innerHTML = "Play Again";
