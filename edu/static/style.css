@@ -1,0 +1,311 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    
+  }
+  body{
+    background: #001e4d;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 60%;
+    width: 60%;
+  }
+  .topic-input {
+    width: 80%;
+    height: 60px; /* Height should be in pixels or other units unless you have a specific reason to use percentage. */
+    margin-bottom: 30px;
+  }
+  .start-screen, .app{
+    display: flex;
+    flex-direction: column; /* 如果需要垂直方向上的居中 */
+    justify-content: center; /* 水平居中内容 */
+    align-items: center; /* 垂直居中内容 */
+    background: rgba(255, 255, 255, 0.8);
+    width: 90%;
+    margin: 50px auto;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 90vh;
+  }
+  .question-container {
+    display: flex;
+    justify-content: center; /* 水平居中内容 */
+    align-items: center; /* 垂直居中内容 */
+    width: 100%; /* 容器宽度为100% */
+    color: black; /* 文字颜色，根据您的设计更改 */
+    padding: 20px 0; /* 上下内边距，根据需要调整 */
+  }
+  .quiz-container {
+    display: flex;         /* 启用 Flexbox */
+    flex-direction: row;  /* 按行排列子元素 */
+    justify-content: space-between; /* 子元素之间的空间均匀分布 */
+    align-items: center;  /* 垂直居中对齐 */
+    width: 100%;          /* 容器宽度 */
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column; /* 按列排列按钮 */
+    align-items: flex-end;
+    margin-left: 40px;
+}
+  .chat-container {
+    width:80%;
+    height: 40%; /* 设置聊天框的高度，可以根据需要调整 */
+    overflow-y: auto; /* 允许垂直滚动 */
+    background-color: #f2f2f2; /* 设置聊天框背景颜色 */
+    padding: 10px;
+    border-radius: 10px;
+    border-color: #222;
+    margin:20px;
+  }
+  
+  .btn.selected {
+    background-color: grey;
+    /* 其他样式 */
+}
+  .user-avatar, .assistant-avatar {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+  
+  .user-avatar img, .assistant-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .user-message {
+    background-color: #DCF8C6; /* WhatsApp风格的浅绿色背景表示用户消息 */
+    color: #303030; /* 深色文字，以确保可读性 */
+    text-align: right; /* 用户消息对齐到右边 */
+}
+
+.assistant-message {
+  background-color: #e7eff6; /* 淡蓝色背景 */
+  color: #4a5d68; /* 深蓝色文字，以确保可读性 */
+  text-align: left; /* 助手消息对齐到左边 */
+}
+
+.message-content {
+    padding: 10px 15px;
+    border-radius: 20px;
+    margin-bottom: 8px; /* 添加一些间距在消息之间 */
+    display: inline-block;
+    max-width: 80%;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15); /* 给消息添加轻微的阴影，增加层次感 */
+}
+
+
+  .typing-container {
+    width:80%;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    padding: 20px 10px;
+    justify-content: center;
+    background: grey;
+    border-top: 1px solid var(--incoming-chat-border);
+  }
+  
+  .typing-container .typing-content {
+    display: flex;
+    max-width: 950px;
+    width: 100%;
+    background: white;
+    align-items: flex-end;
+  }
+  
+  .typing-container .typing-textarea {
+    width: 100%;
+    display: flex;
+    position: relative;
+  }
+  
+  .typing-textarea textarea {
+    resize: none;
+    height: 55px;
+    width: 100%;
+    border: none;
+    padding: 15px 45px 15px 20px;
+    color: var(--text-color);
+    font-size: 1rem;
+    border-radius: 4px;
+    max-height: 250px;
+    overflow-y: auto;
+    background: var(--incoming-chat-bg);
+    outline: 1px solid var(--incoming-chat-border);
+  }
+  
+  .typing-textarea textarea::placeholder {
+    color: var(--placeholder-color);
+  }
+  
+  .typing-content span {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    border-radius: 4px;
+    font-size: 1.35rem;
+    align-items: center;
+    justify-content: center;
+    color: var(--icon-color);
+  }
+  
+  .typing-textarea span {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+  }
+  
+  .typing-textarea textarea:valid ~ span {
+    visibility: visible;
+  }
+  
+  .typing-controls {
+    display: flex;
+  }
+  
+  .typing-controls span {
+    margin-left: 7px;
+    font-size: 1.4rem;
+    background: var(--incoming-chat-bg);
+    outline: 1px solid var(--incoming-chat-border);
+  }
+  
+  .typing-controls span:hover {
+    background: var(--icon-hover-bg);
+  }
+  
+  
+  .start-screen h1, .app h1{
+    font-size: 30px;
+    color: #001e4d;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #start-btn {
+    background: #4a90e2;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #start-btn:hover {
+    background-color: #3778c2;
+  }
+  
+  .quiz {
+    display: flex; /* 开启Flexbox */
+    flex-direction: row; /* 子元素水平排列 */
+    justify-content: flex-start; /* 子元素向左对齐 */
+    align-items: flex-start; /* 子元素顶部对齐 */
+  }
+  
+  .quiz h2 {
+    font-size: 20px;
+    color: #001e4d;
+    margin-bottom: 20px;
+  }
+  .btn{
+    background: #fff;
+    color: #222;
+    font-weight: 500;
+    width: 100%;
+    border: 1px solid #222;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .btn:hover:not([disabled]){
+    background: #222;
+    color: #fff;
+  }
+  .btn:disabled{
+    cursor: no-drop;
+  }
+  .answer-buttons{
+    width:50%;
+  }
+  #next-btn{
+    background: #001e4d;
+    color: #fff;
+    font-weight: 500;
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none;
+  }
+  #back-btn{
+    background: #001e4d;
+    color: #fff;
+    font-weight: 500;
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none;
+  }
+  .correct{
+    background: #9aeabc;
+  }
+  .incorrect{
+    background: #ff9393;
+  }
+  
+  .loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+
+  .toast-message {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.5s, bottom 0.5s;
+    z-index: 100; /* 确保 toast 在最顶层 */
+}
+
+.toast-message.show {
+    opacity: 1;
+    bottom: 30px; /* 微小上移以获得动画效果 */
+}
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
