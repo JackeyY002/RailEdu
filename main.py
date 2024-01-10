@@ -225,7 +225,7 @@ def create_image(prompt):
     
 import googleapiclient.discovery
 
-api_key = 'AIzaSyD3i_ko5dJtPDu6IrYF2mCWtgMA024O1e0'
+api_key = os.getenv("YOUTUBE_API_KEY")
 #google api client youtube endpoint
 def search_youtube_videos(api_key, search_query):
     youtube = googleapiclient.discovery.build('youtube', 'v3', developerKey=api_key)
